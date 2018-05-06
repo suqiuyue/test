@@ -10,13 +10,14 @@ import java.io.*;
  */
 public class OperationGson {
 
-    private String storeDir ="F:\\jsonTest.json";
+    private String storeDir ="C:\\jsonTest.json";
     private Gson gson = new GsonBuilder().create();
 
     public void saveToJson(RangerPolicy policies){
         if(policies != null){
             Writer writer = null;
             try {
+                File jsonFile = storeDir ==null? null :new File("C:\\jsontest.json");
                 writer = new FileWriter(storeDir);
                 gson.toJson(policies,writer);
             } catch (IOException e) {
@@ -36,7 +37,7 @@ public class OperationGson {
 
     public RangerPolicy loadFromJson(){
         RangerPolicy polices = null;
-        File jsonFile = storeDir ==null? null :new File("F:\\jsontest.json");
+        File jsonFile = storeDir ==null? null :new File("C:\\jsontest.json");
         if(jsonFile !=null && jsonFile.isFile() && jsonFile.canRead()){
             Reader reader =null;
             try {
