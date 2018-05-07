@@ -5,21 +5,21 @@ import java.util.List;
 
 public class objectAttribute {
 
-    private List<Date> type; //类型
+    private List<String> type; //类型
     private List<Long> size; //大小
     private List<Date> create_time; //创建时间
     private List<Date> update_time; //修改时间
-    private List<Date> create_by; //创建人
-    private List<Date> security_level; //安全级别
-    private List<Date> tag; //标签
-    private List<Date> permission; //权限
+    private List<String> create_by; //创建人
+    private List<String> security_level; //安全级别
+    private List<String> tag; //标签
+    private List<String> permission; //权限
 
 
-    public List<Date> getType() {
+    public List<String> getType() {
         return type;
     }
 
-    public void setType(List<Date> type) {
+    public void setType(List<String> type) {
         this.type = type;
     }
 
@@ -47,35 +47,35 @@ public class objectAttribute {
         this.update_time = update_time;
     }
 
-    public List<Date> getCreate_by() {
+    public List<String> getCreate_by() {
         return create_by;
     }
 
-    public void setCreate_by(List<Date> create_by) {
+    public void setCreate_by(List<String> create_by) {
         this.create_by = create_by;
     }
 
-    public List<Date> getSecurity_level() {
+    public List<String> getSecurity_level() {
         return security_level;
     }
 
-    public void setSecurity_level(List<Date> security_level) {
+    public void setSecurity_level(List<String> security_level) {
         this.security_level = security_level;
     }
 
-    public List<Date> getTag() {
+    public List<String> getTag() {
         return tag;
     }
 
-    public void setTag(List<Date> tag) {
+    public void setTag(List<String> tag) {
         this.tag = tag;
     }
 
-    public List<Date> getPermission() {
+    public List<String> getPermission() {
         return permission;
     }
 
-    public void setPermission(List<Date> permission) {
+    public void setPermission(List<String> permission) {
         this.permission = permission;
     }
 }

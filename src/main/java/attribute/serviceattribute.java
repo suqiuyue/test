@@ -1,11 +1,12 @@
 package attribute;
 
+import java.util.Date;
 import java.util.List;
 
 public class serviceattribute {
 
     private List<String> type;
-    private List<String> create_time;
+    private List<Date> create_time;
     private List<String> create_by;
     private List<String> object;
 
@@ -17,11 +18,11 @@ public class serviceattribute {
         this.type = type;
     }
 
-    public List<String> getCreate_time() {
+    public List<Date> getCreate_time() {
         return create_time;
     }
 
-    public void setCreate_time(List<String> create_time) {
+    public void setCreate_time(List<Date> create_time) {
         this.create_time = create_time;
     }
 
