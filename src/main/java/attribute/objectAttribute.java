@@ -1,80 +1,81 @@
 package attribute;
 
 import java.util.Date;
+import java.util.List;
 
 public class objectAttribute {
 
-    private String type; //类型
-    private long size; //大小
-    private Date create_time; //创建时间
-    private Date update_time; //修改时间
-    private String create_by; //创建人
-    private String security_level; //安全级别
-    private String tag; //标签
-    private String permission; //权限
+    private List<Date> type; //类型
+    private List<Long> size; //大小
+    private List<Date> create_time; //创建时间
+    private List<Date> update_time; //修改时间
+    private List<Date> create_by; //创建人
+    private List<Date> security_level; //安全级别
+    private List<Date> tag; //标签
+    private List<Date> permission; //权限
 
 
-    public String getType() {
+    public List<Date> getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(List<Date> type) {
         this.type = type;
     }
 
-    public long getSize() {
+    public List<Long> getSize() {
         return size;
     }
 
-    public void setSize(long size) {
+    public void setSize(List<Long> size) {
         this.size = size;
     }
 
-    public Date getCreate_time() {
+    public List<Date> getCreate_time() {
         return create_time;
     }
 
-    public void setCreate_time(Date create_time) {
+    public void setCreate_time(List<Date> create_time) {
         this.create_time = create_time;
     }
 
-    public Date getUpdate_time() {
+    public List<Date> getUpdate_time() {
         return update_time;
     }
 
-    public void setUpdate_time(Date update_time) {
+    public void setUpdate_time(List<Date> update_time) {
         this.update_time = update_time;
     }
 
-    public String getCreate_by() {
+    public List<Date> getCreate_by() {
         return create_by;
     }
 
-    public void setCreate_by(String create_by) {
+    public void setCreate_by(List<Date> create_by) {
         this.create_by = create_by;
     }
 
-    public String getSecurity_level() {
+    public List<Date> getSecurity_level() {
         return security_level;
     }
 
-    public void setSecurity_level(String security_level) {
+    public void setSecurity_level(List<Date> security_level) {
         this.security_level = security_level;
     }
 
-    public String getTag() {
+    public List<Date> getTag() {
         return tag;
     }
 
-    public void setTag(String tag) {
+    public void setTag(List<Date> tag) {
         this.tag = tag;
     }
 
-    public String getPermission() {
+    public List<Date> getPermission() {
         return permission;
     }
 
-    public void setPermission(String permission) {
+    public void setPermission(List<Date> permission) {
         this.permission = permission;
     }
 }

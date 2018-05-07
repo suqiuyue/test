@@ -17,4 +17,8 @@ public class createAttribute {
 //          String gender = genders[index];
           userAttrinbute.setGender("hufan");
       }
+
+      public void createUserAttribute(){
+
+      }
 }

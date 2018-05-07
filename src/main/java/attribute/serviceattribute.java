@@ -1,41 +1,43 @@
 package attribute;
 
+import java.util.List;
+
 public class serviceattribute {
 
-    private String type;
-    private String create_time;
-    private String create_by;
-    private String object;
+    private List<String> type;
+    private List<String> create_time;
+    private List<String> create_by;
+    private List<String> object;
 
-    public String getType() {
+    public List<String> getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(List<String> type) {
         this.type = type;
     }
 
-    public String getCreate_time() {
+    public List<String> getCreate_time() {
         return create_time;
     }
 
-    public void setCreate_time(String create_time) {
+    public void setCreate_time(List<String> create_time) {
         this.create_time = create_time;
     }
 
-    public String getCreate_by() {
+    public List<String> getCreate_by() {
         return create_by;
     }
 
-    public void setCreate_by(String create_by) {
+    public void setCreate_by(List<String> create_by) {
         this.create_by = create_by;
     }
 
-    public String getObject() {
+    public List<String> getObject() {
         return object;
     }
 
-    public void setObject(String object) {
+    public void setObject(List<String> object) {
         this.object = object;
     }
 }
