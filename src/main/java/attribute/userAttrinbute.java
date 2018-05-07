@@ -6,7 +6,7 @@ public class userAttrinbute {
     public List<String> gender;  //性别
     private List<String> political_status; //政治面貌
     private List<String> type_of_certificate; //证件类型
-    private List<String> family_address; //家庭住址
+    private List<String> family_address; //籍贯
     private List<String> department; //部门
     private List<String> degree; //学位
     private List<Integer> age; //年龄
