@@ -6,15 +6,20 @@ import java.util.List;
 
 public class createAttribute {
 
+      public void createJson(){
+
+      }
+
+
       public userAttrinbute createUserAttribute(){
 
           userAttrinbute users = new userAttrinbute();
-          List<String> genders = Arrays.asList("men","women");
+          String[] genders = {"men","women"};
           List<String> political_status = Arrays.asList("dangyuan","tuanyuan","qunzong");
           List<String> type_of_certificate = Arrays.asList("ID card","school card");
           List<String> family_address = Arrays.asList("beijing","shanghai","sichuan","hunan","shanxi","chongqing","henan","hebei");
           List<String> department = Arrays.asList("finance","personnel","technical","sale");
-          List<String> degree = Arrays.asList("doctor","master","Undergraduate","senior");
+          List<String> degree = Arrays.asList("doctor","master","undergraduate","senior");
           List<String> phone_num = Arrays.asList("17563286325","15984522583","12939952458","15632582245","14523654587","17589362887","17456985254","17596635752");
           List<String> email = Arrays.asList("12432546@qq.com","13543563@qq.com","123425325@qq.com","27146285@qq.com","13254376@qq.com","21461754@qq.com","14235312@qq.com","13254764@qq.com");
           List<String> position = Arrays.asList("boss","manager","supervisor","staff");

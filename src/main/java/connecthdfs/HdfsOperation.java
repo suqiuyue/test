@@ -1,10 +1,10 @@
+package connecthdfs;
+
 import org.apache.hadoop.conf.Configuration;
 
 import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.time.LocalDateTime;
-import java.util.Date;
 
 /**
  * Created by sqy on 2018/4/8.
