@@ -1,81 +1,97 @@
 package attribute;
 
 import java.util.Date;
-import java.util.List;
 
 public class objectAttribute {
 
-    private String[] type; //类型
-    private Long[] size; //大小
-    private Date[] create_time; //创建时间
-    private Date[] update_time; //修改时间
-    private String[] create_by; //创建人
-    private String[] security_level; //安全级别
-    private String[] tag; //标签
-    private String[] permission; //权限
+    private String type; //类型
+    private long size; //大小
+    private Date create_time; //创建时间
+    private Date update_time; //修改时间
+    private String create_by; //创建人
+    private String security_level; //安全级别
+    private String tag; //标签
+    private String permission; //权限
 
 
-    public String[] getType() {
+    public String getType() {
         return type;
     }
 
-    public void setType(String[] type) {
+    public void setType(String type) {
         this.type = type;
     }
 
-    public Long[] getSize() {
+    public long getSize() {
         return size;
     }
 
-    public void setSize(Long[] size) {
+    public void setSize(long size) {
         this.size = size;
     }
 
-    public Date[] getCreate_time() {
+    public Date getCreate_time() {
         return create_time;
     }
 
-    public void setCreate_time(Date[] create_time) {
+    public void setCreate_time(Date create_time) {
         this.create_time = create_time;
     }
 
-    public Date[] getUpdate_time() {
+    public Date getUpdate_time() {
         return update_time;
     }
 
-    public void setUpdate_time(Date[] update_time) {
+    public void setUpdate_time(Date update_time) {
         this.update_time = update_time;
     }
 
-    public String[] getCreate_by() {
+    public String getCreate_by() {
         return create_by;
     }
 
-    public void setCreate_by(String[] create_by) {
+    public void setCreate_by(String create_by) {
         this.create_by = create_by;
     }
 
-    public String[] getSecurity_level() {
+    public String getSecurity_level() {
         return security_level;
     }
 
-    public void setSecurity_level(String[] security_level) {
+    public void setSecurity_level(String security_level) {
         this.security_level = security_level;
     }
 
-    public String[] getTag() {
+    public String getTag() {
         return tag;
     }
 
-    public void setTag(String[] tag) {
+    public void setTag(String tag) {
         this.tag = tag;
     }
 
-    public String[] getPermission() {
+    public String getPermission() {
         return permission;
     }
 
-    public void setPermission(String[] permission) {
+    public void setPermission(String permission) {
         this.permission = permission;
+    }
+
+    public String toString( ) {
+        StringBuilder sb = new StringBuilder();
+
+        toString(sb);
+
+        return sb.toString();
+    }
+
+    public StringBuilder toString(StringBuilder sb) {
+        sb.append("objectAttribute={");
+        sb.append(type).append(",");
+        sb.append(create_by).append(",");
+        sb.append(security_level).append(",");
+        sb.append(permission).append("}");
+        return sb;
     }
 }
