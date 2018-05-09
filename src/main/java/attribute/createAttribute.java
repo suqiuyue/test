@@ -23,7 +23,11 @@ public class createAttribute {
         List cache4 = createServiceAttribute();
 
 //        permutationForListArray(totalList,cachev,"",Answer);
-        method2(cache1,cache2,cache3,cache4);
+       ArrayList x =  method2(cache1,cache2,cache3,cache4);
+
+        //例子，比如现在取第3000个策略 的性别
+        ArrayList person = (ArrayList)x.get(3000);
+        System.out.println("当前性别是"+person.get(0));
         System.out.println("success");
 
     }
@@ -128,7 +132,7 @@ public class createAttribute {
 
         ArrayList<String> x = new ArrayList();
         permutation(list, genders, x, ListEach);
-        System.out.println(ListEach.size());
+//        System.out.println(ListEach.size());
 
         return ListEach;
       }
@@ -152,7 +156,7 @@ public class createAttribute {
           list.add(access_type);
           ArrayList<String> x = new ArrayList();
           permutation(list, city, x, ListEach);
-          System.out.println(ListEach.size());
+//          System.out.println(ListEach.size());
           return ListEach;
       }
 
@@ -188,7 +192,7 @@ public class createAttribute {
           list.add(object);
           ArrayList<String> x = new ArrayList();
           permutation(list, type, x, ListEach);
-          System.out.println(ListEach.size());
+//          System.out.println(ListEach.size());
           return ListEach;
       }
 }
