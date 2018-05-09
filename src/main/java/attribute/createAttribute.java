@@ -2,28 +2,25 @@ package attribute;
 
 import org.apache.avro.generic.GenericData;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.IntToDoubleFunction;
 
+import static java.lang.System.arraycopy;
+
 
 public class createAttribute {
 
     public static void main(String[] args)
     {
-        List Answer = new ArrayList();
-        List totalList = new ArrayList();
-        List cache1  = createUserAttribute();
-//        totalList.add(cache1);
-        List cache2 = createEnvAttribute();
-//        totalList.add(cache2);
-        List cache3 = createObjectAttribute();
-//        totalList.add(cache3);
-        List cache4 = createServiceAttribute();
-//        totalList.add(cache4);
 
+        List cache1  = createUserAttribute();
+        List cache2 = createEnvAttribute();
+        List cache3 = createObjectAttribute();
+        List cache4 = createServiceAttribute();
 
 //        permutationForListArray(totalList,cachev,"",Answer);
         method2(cache1,cache2,cache3,cache4);
@@ -32,30 +29,37 @@ public class createAttribute {
     }
 
     //最终计算方法2
-    public static void method2(List L1,List L2,List L3,List L4)
+    public static ArrayList method2(List L1,List L2,List L3,List L4)
     {
+        //初始化计数器
         Integer index = 0;
         Integer l1 = L1.size();
         Integer l2 = L2.size();
         Integer l3 = L3.size();
         Integer l4 = L4.size();
-        List<String> Answer = new ArrayList();
+        ArrayList Answer = new ArrayList();
         for (int i = 0; i < l1; i++) {
             for (int j = 0; j < l2; j++) {
                 for (int k = 0; k < l3; k++) {
                     for (int f = 0; f < l4; f++) {
-//                        String S = L1.get(i).toString();
-//                        index ++;
-                        System.out.println(L1.get(i).toString()+L2.get(j).toString()+L3.get(k).toString()+L4.get(f).toString());
+                        ArrayList<String[]> cache = new ArrayList();
+
+                        index ++;
+                        cache.addAll((ArrayList)L1.get(i));
+                        cache.addAll((ArrayList)L2.get(j));
+                        cache.addAll((ArrayList)L3.get(k));
+                        cache.addAll((ArrayList)L4.get(f));
+                        Answer.add(cache);
                     }
                 }
             }
         }
-//        System.out.println(index);
+        System.out.println("总共计数是"+ index);
+        return Answer;
 
     }
     //最终计算方法1
-//    public static void permutationForListArray(List<List> list,List arr,String str,List Target)
+//    public static void permutationForListArray(ArrayList<List> list,ArrayList arr,String str,List Target)
 //    {
 //        for (int i = 0;i<list.size();i++){
 //
@@ -79,24 +83,18 @@ public class createAttribute {
 //    }
 
     //递归单个排列算出模块中的排列组合
-    public static void permutation(List<String[]> list, String[] arr, String str,List listTarget)
+    public static void permutation(ArrayList<String[]> list, String[] arr, ArrayList<String> str,ArrayList listTarget)
     {
-        for (int i = 0; i < list.size(); i++)
-        {
-            //取得当前的数组
-            if (i == list.indexOf(arr))
-            {
-                //迭代数组
-                for (String st : arr)
-                {
-                    st = str +" " +st;
-                    if (i < list.size() - 1)
-                    {
-                        permutation(list, list.get(i + 1), st,listTarget);
+        for (int i = 0; i < list.size(); i++) {
+            if (i == list.indexOf(arr)) {
+                for (String st : arr) {
+                    ArrayList<String> listx = (ArrayList<String>) str.clone();
+                    listx.add(st);
+                    if (i < list.size() - 1) {
+                        permutation(list, list.get(i + 1), listx,listTarget);
                     }
-                    else if (i == list.size() - 1)
-                    {
-                        listTarget.add(st);
+                    else if (i == list.size() - 1) {
+                        listTarget.add(listx);
                     }
                 }
             }
@@ -108,16 +106,16 @@ public class createAttribute {
         ArrayList<String> ListEach = new ArrayList();
         userAttrinbute users = new userAttrinbute();
         String[] genders = {"men", "women"};
-        String[] political_status = {"dangyuan", "tuanyuan", "qunzong"};
+        String[] political_status = {"dangyuan", "tuanyuan"};
         String[] type_of_certificate = {"ID card", "school card"};
-        String[] family_address = {"beijing", "shanghai", "sichuan", "hunan", "shanxi", "chongqing", "henan", "hebei"};
-        String[] department = {"finance", "personnel", "technical", "sale"};
-        String[] degree = {"doctor", "master", "undergraduate", "senior"};
-        String[] phone_num = {"17563286325", "15984522583", "12939952458", "15632582245", "14523654587", "17589362887", "17456985254", "17596635752"};
-        String[] email = {"12432546@qq.com", "13543563@qq.com", "123425325@qq.com", "27146285@qq.com", "13254376@qq.com", "21461754@qq.com", "14235312@qq.com", "13254764@qq.com"};
-        String[] position = {"boss", "manager", "supervisor", "staff"};
+        String[] family_address = {"beijing", "shanghai"};
+        String[] department = {"finance", "personnel"};
+        String[] degree = {"doctor", "master"};
+        String[] phone_num = {"17563286325", "15984522583"};
+        String[] email = {"12432546@qq.com", "13543563@qq.com"};
+        String[] position = {"boss", "manager"};
 
-        List<String[]> list = new ArrayList<>();
+        ArrayList<String[]> list = new ArrayList<>();
         list.add(genders);
         list.add(political_status);
         list.add(type_of_certificate);
@@ -128,7 +126,8 @@ public class createAttribute {
         list.add(email);
         list.add(position);
 
-        permutation(list, genders, "", ListEach);
+        ArrayList<String> x = new ArrayList();
+        permutation(list, genders, x, ListEach);
         System.out.println(ListEach.size());
 
         return ListEach;
@@ -139,19 +138,20 @@ public class createAttribute {
 
           ArrayList<String> ListEach = new ArrayList();
           envattribute envs = new envattribute();
-          String[] city = {"chengdu", "guiyang", "changshai", "shenzhen", "taiyuan", "zhenzhou", "hainan", "xiamen"};
-          String[] street = {"wangnianchang", "sansheng", "sanhe", "dongguan", "dongsheng", "dongpo", "zhonghe", "jiuliti", "shuyuanjie"};
-          String[] country = {"China", "Australia", "Canada", "Germany", "Japan", "England", "America", "Thailand"};
-          String[] os_type = {"windows", "linux", "mac"};
-          String[] access_type = {"Command Line", "URL", "Program"};
+          String[] city = {"chengdu", "guiyang"};
+          String[] street = {"wangnianchang", "sansheng"};
+          String[] country = {"China", "Australia"};
+          String[] os_type = {"windows", "linux"};
+          String[] access_type = {"Command Line", "URL"};
 
-          List<String[]> list = new ArrayList<>();
+          ArrayList<String[]> list = new ArrayList<>();
           list.add(city);
           list.add(street);
           list.add(country);
           list.add(os_type);
           list.add(access_type);
-          permutation(list, city, "", ListEach);
+          ArrayList<String> x = new ArrayList();
+          permutation(list, city, x, ListEach);
           System.out.println(ListEach.size());
           return ListEach;
       }
@@ -160,34 +160,34 @@ public class createAttribute {
 
           ArrayList<String> ListEach = new ArrayList();
           objectAttribute objects = new objectAttribute();
-          String[] type = {"file", "database", "table", "column"};
-          String[] create_by = {"admin", "root", "hive", "hdfs", "ranger", "knox", "yarn", "atlas"};
-          String[] security_level = {"confidence", "secret", "private", "public"};
-          String[] permission = {"read", "write", "execte", "read/write", "read/execte", "write/execte", "read/write/execte", "select", "delete", "update", "select/delete", "select/update", "delete/update", "all"};
+          String[] type = {"file", "database"};
+          String[] create_by = {"admin", "root"};
+          String[] security_level = {"confidence", "secret"};
+          String[] permission = {"read", "write", "execte"};
 
-          List<String[]> list = new ArrayList<>();
+          ArrayList<String[]> list = new ArrayList<>();
           list.add(type);
           list.add(create_by);
           list.add(security_level);
           list.add(permission);
-
-          permutation(list, type, "", ListEach);
+          ArrayList<String> x = new ArrayList();
+          permutation(list, type, x, ListEach);
 //          System.out.println(ListEach.size());
           return ListEach;
       }
       public static List<String> createServiceAttribute(){
           ArrayList<String> ListEach = new ArrayList();
           serviceattribute service = new serviceattribute();
-          String[] type = {"hdfs", "hive", "yarn", "knox", "hbase", "atlas", "kafka"};
-          String[] create_by = {"admin", "root", "hive", "hdfs", "ranger", "knox", "yarn", "atlas"};
-          String[] object = {"file", "database", "table", "column"};
+          String[] type = {"hdfs", "hive"};
+          String[] create_by = {"admin", "root"};
+          String[] object = {"file", "database"};
 
-          List<String[]> list = new ArrayList<>();
+          ArrayList<String[]> list = new ArrayList<>();
           list.add(type);
           list.add(create_by);
           list.add(object);
-
-          permutation(list, type, "", ListEach);
+          ArrayList<String> x = new ArrayList();
+          permutation(list, type, x, ListEach);
           System.out.println(ListEach.size());
           return ListEach;
       }
