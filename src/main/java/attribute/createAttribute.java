@@ -31,9 +31,11 @@ public class createAttribute {
 
     }
 
-
+    //最终计算方法2
     public static void method2(List L1,List L2,List L3,List L4)
-    {   Integer l1 = L1.size();
+    {
+        Integer index = 0;
+        Integer l1 = L1.size();
         Integer l2 = L2.size();
         Integer l3 = L3.size();
         Integer l4 = L4.size();
@@ -43,15 +45,16 @@ public class createAttribute {
                 for (int k = 0; k < l3; k++) {
                     for (int f = 0; f < l4; f++) {
 //                        String S = L1.get(i).toString();
+//                        index ++;
                         System.out.println(L1.get(i).toString()+L2.get(j).toString()+L3.get(k).toString()+L4.get(f).toString());
                     }
                 }
             }
         }
-
+//        System.out.println(index);
 
     }
-
+    //最终计算方法1
 //    public static void permutationForListArray(List<List> list,List arr,String str,List Target)
 //    {
 //        for (int i = 0;i<list.size();i++){
@@ -75,7 +78,7 @@ public class createAttribute {
 //        }
 //    }
 
-
+    //递归单个排列算出模块中的排列组合
     public static void permutation(List<String[]> list, String[] arr, String str,List listTarget)
     {
         for (int i = 0; i < list.size(); i++)
