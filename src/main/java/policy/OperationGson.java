@@ -4,22 +4,26 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by sqy on 2018/4/25.
  */
 public class OperationGson {
 
-    private String storeDir ="C:\\jsonTest.json";
+    private String storeDir ="./jsonTest.json";
     private Gson gson = new GsonBuilder().create();
 
     public void saveToJson(RangerPolicy policies){
         if(policies != null){
             Writer writer = null;
             try {
-                File jsonFile = storeDir ==null? null :new File("C:\\jsontest.json");
-                writer = new FileWriter(storeDir);
+                File jsonFile = storeDir ==null? null :new File("./jsontest.json");
+                writer = new FileWriter(jsonFile,true);
                 gson.toJson(policies,writer);
+
             } catch (IOException e) {
                 e.printStackTrace();
             }finally {
@@ -37,7 +41,7 @@ public class OperationGson {
 
     public RangerPolicy loadFromJson(){
         RangerPolicy polices = null;
-        File jsonFile = storeDir ==null? null :new File("C:\\jsontest.json");
+        File jsonFile = storeDir ==null? null :new File("./jsontest.json");
         if(jsonFile !=null && jsonFile.isFile() && jsonFile.canRead()){
             Reader reader =null;
             try {

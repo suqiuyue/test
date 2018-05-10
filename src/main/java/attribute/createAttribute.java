@@ -1,12 +1,10 @@
 package attribute;
 
 import org.apache.avro.generic.GenericData;
+import policy.JsonTest;
 
 import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 import java.util.function.IntToDoubleFunction;
 
 import static java.lang.System.arraycopy;
@@ -26,20 +24,22 @@ public class createAttribute {
        ArrayList x =  method2(cache1,cache2,cache3,cache4);
 
         //例子，比如现在取第3000个策略 的性别
-        ArrayList person = (ArrayList)x.get(3000);
+       /* ArrayList person = (ArrayList)x.get(3000);
         System.out.println("当前性别是"+person.get(0));
-        System.out.println("success");
-
+        System.out.println("success");*/
     }
+
+
+
 
     //最终计算方法2
     public static ArrayList method2(List L1,List L2,List L3,List L4)
     {
         //初始化计数器
         Integer index = 0;
-        Integer l1 = L1.size();
-        Integer l2 = L2.size();
-        Integer l3 = L3.size();
+        Integer l1 = L1.size();//userAttrinbute={{men,dangyuan,ID card,beijing},{}..{}}
+        Integer l2 = L2.size();//envattribute={}
+        Integer l3 = L3.size();//
         Integer l4 = L4.size();
         ArrayList Answer = new ArrayList();
         for (int i = 0; i < l1; i++) {
@@ -54,6 +54,9 @@ public class createAttribute {
                         cache.addAll((ArrayList)L3.get(k));
                         cache.addAll((ArrayList)L4.get(f));
                         Answer.add(cache);
+
+                        JsonTest test = new JsonTest();
+                        test.createpolicy(cache,index);
                     }
                 }
             }
@@ -164,16 +167,18 @@ public class createAttribute {
 
           ArrayList<String> ListEach = new ArrayList();
           objectAttribute objects = new objectAttribute();
-          String[] type = {"file", "database"};
+          String[] type = {"path", "database"};
           String[] create_by = {"admin", "root"};
           String[] security_level = {"confidence", "secret"};
           String[] permission = {"read", "write", "execte"};
+          String[] localtion = {"/testdata/systemlog","/testdata/test"};
 
           ArrayList<String[]> list = new ArrayList<>();
           list.add(type);
           list.add(create_by);
           list.add(security_level);
           list.add(permission);
+          list.add(localtion);
           ArrayList<String> x = new ArrayList();
           permutation(list, type, x, ListEach);
 //          System.out.println(ListEach.size());

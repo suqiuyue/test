@@ -17,24 +17,31 @@ import static policy.RangerPolicy.POLICY_TYPES;
  * Created by sqy on 2018/4/25.
  */
 public class JsonTest {
+
     public static void main(String[] args){
+
+
+    }
+
+    public void createpolicy(ArrayList list,int num){
+
         RangerPolicy policy = new RangerPolicy();
-        policy.setName("policy_1");
+        policy.setName("policy_"+num);
         policy.setPolicyType(0);
         policy.setIsAuditEnabled(true);
         policy.setIsEnabled(true);
-        policy.setService("hdfs");
+        policy.setService(list.get(19).toString());
         policy.setVersion(1L);
 
         Map<String,RangerPolicy.RangerPolicyResource> resourceMap = new HashMap<String,RangerPolicy.RangerPolicyResource>();
         RangerPolicy.RangerPolicyResource resource = new RangerPolicy.RangerPolicyResource();
 
         List<String> values = new ArrayList<>();
-        values.add("/test");
+        values.add(list.get(18).toString());
         resource.setValues(values);
         resource.setIsExcludes(true);
         resource.setIsRecursive(true);
-        resourceMap.put("path",resource);
+        resourceMap.put(list.get(21).toString(),resource);
 
         policy.setResources(resourceMap);
 
@@ -43,15 +50,15 @@ public class JsonTest {
 
         List<RangerPolicy.RangerPolicyItemAccess> rangerPolicyItemAccessList = new ArrayList<>();
         RangerPolicy.RangerPolicyItemAccess rangerPolicyItemAccess = new RangerPolicy.RangerPolicyItemAccess();
-        rangerPolicyItemAccess.setType("read");
+        rangerPolicyItemAccess.setType(list.get(17).toString());
         rangerPolicyItemAccess.setIsAllowed(true);
-        rangerPolicyItemAccess.setType("write");
-        rangerPolicyItemAccess.setIsAllowed(true);
+        /*rangerPolicyItemAccess.setType("write");
+        rangerPolicyItemAccess.setIsAllowed(true);*/
         rangerPolicyItemAccessList.add(rangerPolicyItemAccess);
 
         rangerPolicyItem.setAccesses(rangerPolicyItemAccessList);
 
-        List<RangerPolicy.RangerPolicyItemCondition> rangerPolicyItemConditionList = new ArrayList<>();
+        /*List<RangerPolicy.RangerPolicyItemCondition> rangerPolicyItemConditionList = new ArrayList<>();
         RangerPolicy.RangerPolicyItemCondition rangerPolicyItemCondition = new RangerPolicy.RangerPolicyItemCondition();
         rangerPolicyItemCondition.setType("role");
 
@@ -61,12 +68,12 @@ public class JsonTest {
         rangerPolicyItemCondition.setValues(conditionValues);
         rangerPolicyItemConditionList.add(rangerPolicyItemCondition);
 
-        rangerPolicyItem.setConditions(rangerPolicyItemConditionList);
+        rangerPolicyItem.setConditions(rangerPolicyItemConditionList);*/
 
         List<String> users = new ArrayList<>();
-        users.add("test");
+        users.add(list.get(8).toString());
         List<String> groups = new ArrayList<>();
-        groups.add("");
+        groups.add(list.get(5).toString());
 
         rangerPolicyItem.setUsers(users);
         rangerPolicyItem.setDelegateAdmin(false);
@@ -75,11 +82,12 @@ public class JsonTest {
 
         policy.setPolicyItems(rangerPolicyItemList);
 
-        OperationGson operationGson = new OperationGson();
 
+       // System.out.println(policy);
+        OperationGson operationGson = new OperationGson();
         operationGson.saveToJson(policy);
 
-        System.out.println(operationGson.loadFromJson());
 
+        //System.out.println(operationGson.loadFromJson());
     }
 }

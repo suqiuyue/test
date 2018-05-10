@@ -401,7 +401,7 @@ public class RangerPolicy extends RangerBaseModelObject implements java.io.Seria
         return sb.toString();
     }
 
-    public StringBuilder toString(StringBuilder sb) {
+    public StringBuilder toString(StringBuilder sb) { //这里定义的输出格式
         sb.append("RangerPolicy={");
 
         super.toString(sb);
@@ -483,7 +483,8 @@ public class RangerPolicy extends RangerBaseModelObject implements java.io.Seria
         }
         sb.append("} ");
 
-        sb.append("}");
+        sb.append("---------}-------------");
+        //sb.append(","); //最后加了个逗号
 
         return sb;
     }
