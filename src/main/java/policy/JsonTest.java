@@ -28,25 +28,26 @@ import static policy.RangerPolicy.POLICY_TYPES;
  */
 public class JsonTest {
 
-    public void createpolicy(ArrayList list, int num){
+    public void createpolicy(HashMap map, int num){
 
         RangerPolicy policy = new RangerPolicy();
         policy.setName("policy_"+num);
         policy.setPolicyType(0);
         policy.setIsAuditEnabled(true);
         policy.setIsEnabled(true);
-        policy.setService(list.get(19).toString());
+        String x = (String)map.get("serType");
+        policy.setService(x);
         policy.setVersion(1L);
 
         Map<String,RangerPolicy.RangerPolicyResource> resourceMap = new HashMap<String,RangerPolicy.RangerPolicyResource>();
         RangerPolicy.RangerPolicyResource resource = new RangerPolicy.RangerPolicyResource();
 
         List<String> values = new ArrayList<>();
-        values.add(list.get(18).toString());
+        values.add((String)map.get("serType"));
         resource.setValues(values);
         resource.setIsExcludes(true);
         resource.setIsRecursive(true);
-        resourceMap.put(list.get(21).toString(),resource);
+        resourceMap.put((String)map.get("serType"),resource);
 
         policy.setResources(resourceMap);
 
@@ -55,7 +56,7 @@ public class JsonTest {
 
         List<RangerPolicy.RangerPolicyItemAccess> rangerPolicyItemAccessList = new ArrayList<>();
         RangerPolicy.RangerPolicyItemAccess rangerPolicyItemAccess = new RangerPolicy.RangerPolicyItemAccess();
-        rangerPolicyItemAccess.setType(list.get(17).toString());
+        rangerPolicyItemAccess.setType((String)map.get("serType"));
         rangerPolicyItemAccess.setIsAllowed(true);
         /*rangerPolicyItemAccess.setType("write");
         rangerPolicyItemAccess.setIsAllowed(true);*/
@@ -76,9 +77,9 @@ public class JsonTest {
         rangerPolicyItem.setConditions(rangerPolicyItemConditionList);*/
 
         List<String> users = new ArrayList<>();
-        users.add(list.get(8).toString());
+        users.add((String)map.get("serType"));
         List<String> groups = new ArrayList<>();
-        groups.add(list.get(5).toString());
+        groups.add((String)map.get("serType"));
 
         rangerPolicyItem.setUsers(users);
         rangerPolicyItem.setDelegateAdmin(false);

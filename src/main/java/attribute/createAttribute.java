@@ -57,14 +57,24 @@ public class createAttribute {
                         ArrayList<String[]> cache = new ArrayList();
 
                         index ++;
-                        cache.addAll((ArrayList)L1.get(i));
-                        cache.addAll((ArrayList)L2.get(j));
-                        cache.addAll((ArrayList)L3.get(k));
-                        cache.addAll((ArrayList)L4.get(f));
-                        Answer.add(cache);
+
+
+
+
+
+
+
+
+                        HashMap itemMap = initHashMap((ArrayList)L1.get(i),(ArrayList)L2.get(j),(ArrayList)L3.get(k),(ArrayList)L4.get(f));
+
+//                        cache.addAll((ArrayList)L1.get(i));
+//                        cache.addAll((ArrayList)L2.get(j));
+//                        cache.addAll((ArrayList)L3.get(k));
+//                        cache.addAll((ArrayList)L4.get(f));
+                        Answer.add(itemMap);
 
                         JsonTest test = new JsonTest();
-                        test.createpolicy(cache,index);
+                        test.createpolicy(itemMap,index);
 
                     }
                 }
@@ -98,6 +108,38 @@ public class createAttribute {
 //        }
 //    }
 
+    public  static HashMap initHashMap(ArrayList list1,ArrayList list2,ArrayList list3,ArrayList list4)
+    {
+        HashMap<String, String> map = new HashMap<String, String>();
+        map.put("genders", (String)list1.get(0));
+        map.put("political_status", (String)list1.get(1));
+        map.put("type_of_certificate", (String)list1.get(2));
+        map.put("family_address", (String)list1.get(3));
+        map.put("department", (String)list1.get(4));
+        map.put("degree", (String)list1.get(5));
+        map.put("phone_num", (String)list1.get(6));
+        map.put("email", (String)list1.get(7));
+        map.put("position", (String)list1.get(8));
+
+        map.put("city", (String)list2.get(0));
+        map.put("street", (String)list2.get(1));
+        map.put("country", (String)list2.get(2));
+        map.put("os_type", (String)list2.get(3));
+        map.put("access_type", (String)list2.get(4));
+
+        map.put("objType", (String)list3.get(0));
+        map.put("objCreate_by", (String)list3.get(1));
+        map.put("security_level", (String)list3.get(2));
+        map.put("permission", (String)list3.get(3));
+        map.put("localtion", (String)list3.get(4));
+
+        map.put("serType", (String)list4.get(0));
+        map.put("serCreate_by", (String)list4.get(1));
+        map.put("object", (String)list4.get(2));
+
+
+        return map;
+    }
     //递归单个排列算出模块中的排列组合
     public static void permutation(ArrayList<String[]> list, String[] arr, ArrayList<String> str,ArrayList listTarget)
     {
