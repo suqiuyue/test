@@ -1,16 +1,26 @@
 package policy;
 
+import attribute.createAttribute;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import attribute.userAttrinbute;
+import com.sun.jersey.api.client.Client;
+import com.sun.jersey.api.client.ClientResponse;
+import com.sun.jersey.api.client.WebResource;
+import com.sun.jersey.api.client.filter.HTTPBasicAuthFilter;
+
+import javax.ws.rs.core.MediaType;
+
 import static policy.RangerPolicy.POLICY_TYPES;
 
 /**
@@ -18,12 +28,7 @@ import static policy.RangerPolicy.POLICY_TYPES;
  */
 public class JsonTest {
 
-    public static void main(String[] args){
-
-
-    }
-
-    public void createpolicy(ArrayList list,int num){
+    public void createpolicy(ArrayList list, int num){
 
         RangerPolicy policy = new RangerPolicy();
         policy.setName("policy_"+num);
@@ -82,12 +87,11 @@ public class JsonTest {
 
         policy.setPolicyItems(rangerPolicyItemList);
 
-
        // System.out.println(policy);
         OperationGson operationGson = new OperationGson();
         operationGson.saveToJson(policy);
 
-
+        //return result;
         //System.out.println(operationGson.loadFromJson());
     }
 }

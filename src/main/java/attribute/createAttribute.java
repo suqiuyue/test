@@ -1,9 +1,16 @@
 package attribute;
 
+import com.sun.jersey.api.client.Client;
+import com.sun.jersey.api.client.ClientResponse;
+import com.sun.jersey.api.client.WebResource;
+import com.sun.jersey.api.client.filter.HTTPBasicAuthFilter;
 import org.apache.avro.generic.GenericData;
 import policy.JsonTest;
 
+import javax.ws.rs.core.MediaType;
 import java.lang.reflect.Array;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.*;
 import java.util.function.IntToDoubleFunction;
 
@@ -33,6 +40,7 @@ public class createAttribute {
 
 
     //最终计算方法2
+
     public static ArrayList method2(List L1,List L2,List L3,List L4)
     {
         //初始化计数器
@@ -57,6 +65,7 @@ public class createAttribute {
 
                         JsonTest test = new JsonTest();
                         test.createpolicy(cache,index);
+
                     }
                 }
             }
@@ -187,7 +196,7 @@ public class createAttribute {
       public static List<String> createServiceAttribute(){
           ArrayList<String> ListEach = new ArrayList();
           serviceattribute service = new serviceattribute();
-          String[] type = {"hdfs", "hive"};
+          String[] type = {"hadoopdev", "hivedev"};
           String[] create_by = {"admin", "root"};
           String[] object = {"file", "database"};
 
