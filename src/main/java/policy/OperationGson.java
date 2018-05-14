@@ -23,16 +23,15 @@ public class OperationGson {
     private String storeDir ="./jsonTest.json";
     private Gson gson = new GsonBuilder().create();
 
-    public boolean saveToJson(RangerPolicy policies){
-        boolean flag = false;
-        if(policies != null){
+    public void saveToJson(RangerPolicy policies){
             Writer writer = null;
-            if(!flag){
+
                 try {
                     File jsonFile = storeDir ==null? null :new File("./jsontest.json");
                     writer = new FileWriter(jsonFile);
+                    gson.toJson(policies,writer);
                     String jsString = gson.toJson(policies);
-
+                    //System.out.println(jsString);
                     sendToServer(jsString);
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -45,14 +44,10 @@ public class OperationGson {
                         }
                     }
                 }
-            }
 
-            flag = true;
-         }
-         return flag;
     }
     public void sendToServer(String Json){
-        String path = "http://10.0.0.42:6080/service/public/v2/api/policy/";
+        String path = "http://10.0.0.45:6080/service/public/v2/api/policy/";
         ClientResponse response = null;
         try {
             URI uri = new URI(path);

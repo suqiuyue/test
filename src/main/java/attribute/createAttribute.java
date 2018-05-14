@@ -58,13 +58,6 @@ public class createAttribute {
 
                         index ++;
 
-
-
-
-
-
-
-
                         HashMap itemMap = initHashMap((ArrayList)L1.get(i),(ArrayList)L2.get(j),(ArrayList)L3.get(k),(ArrayList)L4.get(f));
 
 //                        cache.addAll((ArrayList)L1.get(i));
@@ -162,7 +155,7 @@ public class createAttribute {
     //创建用户属性
     public static List<String> createUserAttribute(){
         ArrayList<String> ListEach = new ArrayList();
-        userAttrinbute users = new userAttrinbute();
+
         String[] genders = {"men", "women"};
         String[] political_status = {"dangyuan", "tuanyuan"};
         String[] type_of_certificate = {"ID card", "school card"};
@@ -195,7 +188,7 @@ public class createAttribute {
       public static List<String> createEnvAttribute(){
 
           ArrayList<String> ListEach = new ArrayList();
-          envattribute envs = new envattribute();
+
           String[] city = {"chengdu", "guiyang"};
           String[] street = {"wangnianchang", "sansheng"};
           String[] country = {"China", "Australia"};
@@ -217,7 +210,7 @@ public class createAttribute {
       public static List<String> createObjectAttribute(){
 
           ArrayList<String> ListEach = new ArrayList();
-          objectAttribute objects = new objectAttribute();
+
           String[] type = {"path", "database"};
           String[] create_by = {"admin", "root"};
           String[] security_level = {"confidence", "secret"};
@@ -237,7 +230,7 @@ public class createAttribute {
       }
       public static List<String> createServiceAttribute(){
           ArrayList<String> ListEach = new ArrayList();
-          serviceattribute service = new serviceattribute();
+
           String[] type = {"hadoopdev", "hivedev"};
           String[] create_by = {"admin", "root"};
           String[] object = {"file", "database"};
