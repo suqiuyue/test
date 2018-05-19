@@ -12,11 +12,11 @@ import java.time.LocalDateTime;
 public class HdfsOperation {
     private static String SOURCE_PATH = "F:\\project";
     private static String DEST_PATH = "/test";
-    private static String MASTER_URI = "hdfs://10.0.0.66:9000";
+    private static String MASTER_URI = "hdfs://10.0.0.45:9000";
     public static void main(String[] args){
         Configuration conf = new Configuration();
-        conf.set("fs.defaultFS","hdfs://10.0.0.66:9000");
-        System.setProperty("HADOOP_USER_NAME","root");
+        conf.set("fs.defaultFS","hdfs://10.0.0.45:9000");
+        System.setProperty("HADOOP_USER_NAME","hive");
         HdfsUtil util = new HdfsUtil();
         try {
 

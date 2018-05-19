@@ -2,11 +2,12 @@ package attribute;
 
 import policy.JsonTest;
 
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Random;
+import java.io.File;
+import java.net.MalformedURLException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 /**
  * Created by sqy on 2018/5/14.
@@ -20,10 +21,9 @@ public class createAttributeTest1 {
         List cache3 = createObjectAttribute();
         List cache4 = createServiceAttribute();
 
-
-        ArrayList listContMap =  method2(cache1,cache2,cache3,cache4); //这里是属性的排列组合嘛？
-
+        ArrayList listContMap =  method2(cache1,cache2,cache3,cache4);
         addLocationToPolicy(listContMap);
+
     }
 
     //将四类属性进行排列组合并生成策略
@@ -62,7 +62,7 @@ public class createAttributeTest1 {
             itemMap = (HashMap)listMap.get(index);
             itemMap.put("localtion",localtionL[i]);
             JsonTest test = new JsonTest();
-            test.createpolicy(itemMap,i);
+            test.createpolicy(itemMap,i+1000);
 
         }
     }
@@ -91,18 +91,19 @@ public class createAttributeTest1 {
 
         String[] localtion =new String[100];
 
-        for (int honeyIndex=0;honeyIndex<2;honeyIndex++){
+        for (int honeyIndex=20;honeyIndex<22;honeyIndex++){
             for (int i = 0; i < 50; i++) {
                 String honeyID = "";
                 if (honeyIndex != 0){
                     honeyID = "_"+honeyIndex;
                 }
-                String numID = "/000";
+                String numID = "/part-000";
                 if (i<10) {
-                    numID = "/0000";
+                    numID = "/part-0000";
                 }
                 String path = "/testdata/honey"+honeyID + numID +i;
-                localtion[honeyIndex*51+i] = path;
+                localtion[(honeyIndex-20)*50+i] = path;
+
             }
         }
 
@@ -132,7 +133,7 @@ public class createAttributeTest1 {
     public static List<String> createUserAttribute(){
         ArrayList<String> ListEach = new ArrayList();
 
-        String[] username = {"hive","root"};
+        String[] username = {"test1","test2"};
 
         String[] genders = {"men", "women"};
 
@@ -181,8 +182,8 @@ public class createAttributeTest1 {
     public static List<String> createServiceAttribute(){
         ArrayList<String> ListEach = new ArrayList();
 
-        String[] serivceType = {"hadoopdev"};
-        String[] object = {"path", "database"};
+        String[] serivceType = {"TestCluster_hadoop"};
+        String[] object = {"path"};
 
         ArrayList<String[]> list = new ArrayList<>();
         list.add(serivceType);

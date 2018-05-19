@@ -55,6 +55,14 @@
             <version>1.6.0rc3</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/org.apache.ranger/ranger-plugins-common -->
+        <dependency>
+            <groupId>org.apache.ranger</groupId>
+            <artifactId>ranger-plugins-common</artifactId>
+            <version>0.6.0</version>
+        </dependency>
+
+
 
     </dependencies>
 
